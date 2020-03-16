@@ -1,0 +1,30 @@
+{
+    "devDependencies": {
+        "nyc": "^15.0.0",
+        "serverless": "^1.48.0",
+        "serverless-bundle": "^1.2.5",
+        "serverless-dotenv-plugin": "^2.1.1",
+        "serverless-offline": "^5.3.3"
+    },
+    "dependencies": {},
+    "scripts": {
+        "test": "serverless-bundle test",
+        "test-nyc": "nyc npm test"
+    },
+    "nyc": {
+        "all": true,
+        "extension": [
+          ".js"
+        ],
+        "include": [
+          "api/**/!(*.test.*).[tj]s?(x)"
+        ],
+        "reporter": [
+          "html",
+          "lcov",
+          "text",
+          "text-summary"
+        ],
+        "report-dir": "docs/reports/coverage"
+      }
+}
